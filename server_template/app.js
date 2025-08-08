@@ -24,8 +24,9 @@ app.use(cookieParser());
 // Routes
 app.use('/api', indexRouter);
 app.use('/api/users', usersRouter);
+
 app.use('/api/db', dbViewerRouter);
-app.get('/dbviewer', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'dbviewer.html'));
 });
 

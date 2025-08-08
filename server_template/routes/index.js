@@ -1,12 +1,25 @@
-const express = require('express');
+import express from 'express';
+import { db } from '../services/db.js';
+
 const router = express.Router();
 
-// Health check endpoint
-router.get('/', (req, res) => {
-    res.json({
-        success: true,
-        message: 'API is running 🚀',
-    });
+router.get('/', async (req, res, next) => {
+    try {
+        await db.read();
+
+        res.json({
+            success: true,
+            status: 'ok',
+            uptime: process.uptime(),
+            timestamp: new Date(),
+            dbStatus: db.data ? 'connected' : 'not connected',
+            summary: {
+                users: db.data?.users?.length || 0
+            }
+        });
+    } catch (error) {
+        next(error);
+    }
 });
 
-module.exports = router;
+export default router;

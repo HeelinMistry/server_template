@@ -1,16 +1,18 @@
-require('dotenv').config();
+import express from 'express';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import logger from 'morgan';
+import cookieParser from 'cookie-parser';
+import indexRouter from './routes/index.js';
+import usersRouter from './routes/users.js';
+import { generalErrorHandler } from './middlewares/errorHandler.js';
 
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-
+dotenv.config();
 const app = express();
-
-const { generalErrorHandler } = require('./middlewares/errorHandler');
 
 // Middleware
 app.use(logger('dev'));
@@ -34,4 +36,4 @@ app.use((req, res) => {
 // Centralized general error handler
 app.use(generalErrorHandler);
 
-module.exports = app;
+export default app;

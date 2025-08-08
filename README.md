@@ -115,6 +115,7 @@ PORT=4000 npm start
 - [express](https://www.npmjs.com/package/express) – Web framework
 - [morgan](https://www.npmjs.com/package/morgan) – HTTP request logger
 - [cookie-parser](https://www.npmjs.com/package/cookie-parser) – Parse cookies
+- [dotenv](https://www.npmjs.com/package/dotenv) – Environment variable loader
 
 **Dev Dependencies:**
 - [nodemon](https://www.npmjs.com/package/nodemon) – Auto-restart server in development

@@ -110,8 +110,8 @@ server_template/
 │   └── usersService.js
 │── middlewares/
 │   └── errorHandler.js
-│── middlewares/
-│   └── errorHandler.js
+│── public/
+│   └── dbviewer.html
 │── app.js
 │── .env
 │── package.json

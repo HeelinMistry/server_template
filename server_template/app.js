@@ -10,6 +10,8 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
+const { generalErrorHandler } = require('./middlewares/errorHandler');
+
 // Middleware
 app.use(logger('dev'));
 app.use(express.json());
@@ -29,13 +31,7 @@ app.use((req, res) => {
     });
 });
 
-// Error handler
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(err.status || 500).json({
-        success: false,
-        message: err.message || 'Internal Server Error',
-    });
-});
+// Centralized general error handler
+app.use(generalErrorHandler);
 
 module.exports = app;

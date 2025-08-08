@@ -1,25 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const { body } = require('express-validator');
+const usersController = require('../controllers/usersController');
+const { validationErrorHandler } = require('../middlewares/errorHandler');
 
-// Example: GET /api/users
-router.get('/', (req, res) => {
-    res.json({
-        success: true,
-        data: [
-            { id: 1, name: 'Alice' },
-            { id: 2, name: 'Bob' }
-        ]
-    });
-});
+const validateCreateUser = [
+    body('name')
+        .trim()
+        .notEmpty().withMessage('Name is required')
+        .isLength({ min: 2 }).withMessage('Name must be at least 2 characters'),
+];
 
-// Example: POST /api/users
-router.post('/', (req, res) => {
-    const { name } = req.body;
-    res.status(201).json({
-        success: true,
-        message: 'User created',
-        data: { id: Date.now(), name }
-    });
-});
+router.get('/', usersController.getUsers);
+router.post('/', validateCreateUser, validationErrorHandler, usersController.createUser);
 
 module.exports = router;

@@ -1,27 +1,35 @@
 const usersService = require('../services/usersService');
 
-const getUsers = (req, res) => {
-    const users = usersService.getAllUsers();
-    res.json({
-        success: true,
-        data: users,
-    });
+const getUsers = async (req, res, next) => {
+    try {
+        const users = await usersService.getAllUsers();
+        res.json({
+            success: true,
+            data: users,
+        });
+    } catch (error) {
+        next(error);
+    }
 };
 
-const createUser = (req, res) => {
-    const { name } = req.body;
-    if (!name) {
-        return res.status(400).json({
-            success: false,
-            message: 'Name is required',
+const createUser = async (req, res, next) => {
+    try {
+        const { name } = req.body;
+        if (!name) {
+            return res.status(400).json({
+                success: false,
+                message: 'Name is required',
+            });
+        }
+        const newUser = await usersService.createUser(name);
+        res.status(201).json({
+            success: true,
+            message: 'User created',
+            data: newUser,
         });
+    } catch (error) {
+        next(error);
     }
-    const newUser = usersService.createUser(name);
-    res.status(201).json({
-        success: true,
-        message: 'User created',
-        data: newUser,
-    });
 };
 
 module.exports = {

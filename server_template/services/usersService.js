@@ -1,22 +1,18 @@
-// Simulated user data store
-const users = [
-    { id: 1, name: 'Alice' },
-    { id: 2, name: 'Bob' },
-];
+// services/usersService.js
+const { db, init } = require('./db');
 
-// Service functions for users
-const getAllUsers = () => {
-    return users;
-};
+async function getAllUsers() {
+    await init();
+    return db.data.users;
+}
 
-const createUser = (name) => {
-    const newUser = {
-        id: Date.now(),
-        name,
-    };
-    users.push(newUser);
+async function createUser(name) {
+    await init();
+    const newUser = { id: Date.now(), name };
+    db.data.users.push(newUser);
+    await db.write();
     return newUser;
-};
+}
 
 module.exports = {
     getAllUsers,

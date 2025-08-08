@@ -1,6 +1,6 @@
-const usersService = require('../services/usersService');
+import * as usersService from '../services/usersService.js';
 
-const getUsers = async (req, res, next) => {
+export async function getUsers(req, res, next) {
     try {
         const users = await usersService.getAllUsers();
         res.json({
@@ -10,9 +10,9 @@ const getUsers = async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-};
+}
 
-const createUser = async (req, res, next) => {
+export async function createUser (req, res, next) {
     try {
         const { name } = req.body;
         if (!name) {
@@ -30,9 +30,4 @@ const createUser = async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-};
-
-module.exports = {
-    getUsers,
-    createUser,
-};
+}

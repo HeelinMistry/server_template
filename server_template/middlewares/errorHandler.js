@@ -1,7 +1,7 @@
 // middlewares/errorHandler.js
-const { validationResult } = require('express-validator');
+import { validationResult } from 'express-validator';
 
-const validationErrorHandler = (req, res, next) => {
+export function validationErrorHandler (req, res, next) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({
@@ -13,9 +13,9 @@ const validationErrorHandler = (req, res, next) => {
         });
     }
     next();
-};
+}
 
-const generalErrorHandler = (err, req, res, next) => {
+export function generalErrorHandler (err, req, res, next) {
     console.error(err.stack); // Log the error stack trace
 
     const statusCode = err.status || 500;
@@ -25,9 +25,4 @@ const generalErrorHandler = (err, req, res, next) => {
         success: false,
         message,
     });
-};
-
-module.exports = {
-    validationErrorHandler,
-    generalErrorHandler,
-};
+}

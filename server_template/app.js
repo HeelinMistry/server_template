@@ -6,6 +6,7 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import dbViewerRouter from './routes/dbViewer.js';
 import { generalErrorHandler } from './middlewares/errorHandler.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,11 +20,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/api', indexRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/db', dbViewerRouter);
+app.get('/dbviewer', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'dbviewer.html'));
+});
 
 // 404 handler
 app.use((req, res) => {

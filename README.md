@@ -1,127 +1,125 @@
-# Express.js API Starter Template
+# Server Template API
 
-This is a minimal **API-first** Express.js starter template designed for building RESTful backends.  
-It uses JSON responses only (no server-side rendering) and is structured for easy scaling.
-
----
-
-## 📂 Project Structure
-
-```
-.
-├── app.js              # Main Express app configuration
-├── bin/
-│   └── api             # Server entry point
-├── package.json        # Project dependencies & scripts
-├── public/             # Public static files (optional)
-├── routes/
-│   ├── index.js        # API health check route
-│   └── users.js        # Example user routes
-└── README.md           # Project documentation
-```
+A simple Node.js Express REST API with Lowdb JSON database, ES modules, and essential middleware.
 
 ---
 
-## 🚀 Getting Started
+## Features
 
-### 1️⃣ Install dependencies
+- **Express 4+** with ES module syntax (`import` / `export`)
+- JSON file database using [Lowdb](https://github.com/typicode/lowdb)
+- Environment variables via [dotenv](https://github.com/motdotla/dotenv)
+- Input validation using [express-validator](https://express-validator.github.io/docs/)
+- HTTP request logging with [morgan](https://github.com/expressjs/morgan)
+- Centralized error handling middleware
+- Health check endpoint at `/api`
+- User API (`GET` and `POST` at `/api/users`)
+
+---
+
+## Prerequisites
+
+- Node.js v14+ installed
+- `npm` 
+
+---
+
+## Getting Started
+
+1**Install dependencies**
+
 ```bash
 npm install
 ```
 
-### 2️⃣ Run in development mode (with auto-reload)
-```bash
-npm run dev
-```
-> Requires `nodemon`. Install if missing:
-```bash
-npm install --save-dev nodemon
+3. **Create `.env` file**
+
+```env
+PORT=3000
 ```
 
-### 3️⃣ Run in production mode
+4. **Create `db.json` file**
+
+```json
+{
+  "users": []
+}
+```
+
+5. **Run the server**
+
 ```bash
 npm start
 ```
 
 ---
 
-## 🌐 API Endpoints
+## API Endpoints
 
-### **Health Check**
-```
+### Health Check
+
+```http
 GET /api
 ```
 **Response:**
 ```json
-{
-  "success": true,
-  "message": "API is running 🚀"
-}
+{ "success": true, "message": "API is working" }
 ```
 
----
+### Get Users
 
-### **Get All Users**
-```
+```http
 GET /api/users
 ```
-**Response:**
-```json
-{
-  "success": true,
-  "data": [
-    { "id": 1, "name": "Alice" },
-    { "id": 2, "name": "Bob" }
-  ]
-}
-```
 
----
+### Create User
 
-### **Create a User**
-```
+```http
 POST /api/users
 Content-Type: application/json
 
 {
-  "name": "Charlie"
-}
-```
-**Response:**
-```json
-{
-  "success": true,
-  "message": "User created",
-  "data": {
-    "id": 1691498161000,
-    "name": "Charlie"
-  }
+  "name": "John Doe"
 }
 ```
 
 ---
 
-## ⚙️ Configuration
+## Scripts
 
-- **Port**: Default is `3000`. Change via environment variable:
-```bash
-PORT=4000 npm start
+- `npm start` — Start the server
+- `npm run dev` — Start with nodemon for development
+
+---
+
+## Project Structure
+
+```
+server_template/
+│── bin/
+│   ├── api  
+│── controllers/
+│   └── usersController.js
+│── routes/
+│   ├── dbViewer.js
+│   ├── index.js
+│   └── users.js
+│── services/
+│   ├── db.js
+│   ├── db.json
+│   └── usersService.js
+│── middlewares/
+│   └── errorHandler.js
+│── middlewares/
+│   └── errorHandler.js
+│── app.js
+│── .env
+│── package.json
+│── README.md
 ```
 
 ---
 
-## 📦 Dependencies
+## License
 
-- [express](https://www.npmjs.com/package/express) – Web framework
-- [morgan](https://www.npmjs.com/package/morgan) – HTTP request logger
-- [cookie-parser](https://www.npmjs.com/package/cookie-parser) – Parse cookies
-- [dotenv](https://www.npmjs.com/package/dotenv) – Environment variable loader
-
-**Dev Dependencies:**
-- [nodemon](https://www.npmjs.com/package/nodemon) – Auto-restart server in development
-
----
-
-## 📝 License
-This project is provided as a template and has no specific license.  
-Use freely for learning or starting new projects.
+MIT License

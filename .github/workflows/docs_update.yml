@@ -29,6 +29,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20' # Use a modern, stable Node version
+          
+      - name: Route to root folder
+        run: |
+          cd server_template
 
       - name: 📦 Install Project Dependencies
         run: npm ci # Use 'ci' for faster, cleaner dependency install in CI environments
@@ -39,7 +43,6 @@ jobs:
 
       - name: 📜 Generate API Documentation (Markdown)
         run: |
-          cd server_template
           npx jsdoc2md --files 'controllers/*.js' 'services/*.js' > API_REFERENCE.md
 
       - name: ⬆️ Commit and Push Documentation Update

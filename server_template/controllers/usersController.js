@@ -79,7 +79,10 @@ export async function loginUser(req, res, next) {
                 res.status(201).json({
                             success: true,
                             message: 'User logged in',
-                            data: result.user.id,
+                            data: {
+                                user: result.user,
+                                token: result.token,
+                            }
                         });
             } else {
                 res.status(201).json({

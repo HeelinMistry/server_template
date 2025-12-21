@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node ./bin/api",
-    "dev": "nodemon ./bin/api"
+    "dev": "nodemon ./bin/api",
+    "docs": "npx jsdoc2md --files 'controllers/*.js' 'services/*.js' > docs/API_REFERENCE.md"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -21,6 +22,7 @@
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
+    "jsdoc-to-markdown": "^9.1.3",
     "nodemon": "^3.1.10"
   }
 }

@@ -7,27 +7,58 @@ import dotenv from 'dotenv';
 dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
+/**
+ * Compares users in the db with the user and returns the match.
+ * @async
+ * @param {string} name - The name provided by the user.
+ * @returns {Promise<object>} An object containing user data
+ */
 export function findUserByName(name) {
     return db.data.users.find(u => u.name === name);
 }
 
-// Get all users
+/**
+ * Get all users stored in the db.
+ * @async
+ * @returns {Promise<object>} An object containing success status and user data, or an error message.
+ * @throws {Error} Throws if token signing or database connection fails.
+ */
 export async function getAllUsers() {
     await init();
     return db.data.users;
 }
 
-// Create new user
 const saltRounds = 10;
 
+/**
+ * Hash a plain text secret.
+ * @async
+ * @param {string} name - The password provided by the user.
+ * @param {string} storedHash - The hashed password retrieved from the database.
+ * @returns {Promise<string>} Hashed Value.
+ */
 async function hashSecret(name) {
     return await bcrypt.hash(name, saltRounds);
 }
 
+/**
+ * Compares a plain text secret against a stored hash.
+ * @async
+ * @param {string} plainSecret - The password provided by the user.
+ * @param {string} storedHash - The hashed password retrieved from the database.
+ * @returns {Promise<boolean>} True if the secrets match, false otherwise.
+ */
 async function compareSecret(plainSecret, hashedSecret) {
     return await bcrypt.compare(plainSecret, hashedSecret);
 }
 
+/**
+ * Create a new user, if there is no matching user.
+ * @async
+ * @param {string} name - The user's name (used as the primary identifier for login).
+ * @returns {Promise<object>} An object containing success status, and user data, or an error message.
+ * @throws {Error} Throws if token signing or database connection fails.
+ */
 export async function createUser(name) {
     await init();
     const secret = await hashSecret(name);
@@ -47,7 +78,13 @@ export async function createUser(name) {
     }
 }
 
-// Login user
+/**
+ * Finds a user by name, compares the secret, and generates a JWT upon successful authentication.
+ * @async
+ * @param {string} name - The user's name (used as the primary identifier for login).
+ * @returns {Promise<object>} An object containing success status, token, and user data, or an error message.
+ * @throws {Error} Throws if token signing or database connection fails.
+ */
 export async function loginUser(name) {
     await init();
     const user = findUserByName(name);

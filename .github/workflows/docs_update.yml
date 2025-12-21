@@ -41,7 +41,7 @@ jobs:
       - name: 📜 Generate API Documentation (Markdown)
         run: |
           cd server_template
-          npx jsdoc2md --files 'controllers/*.js' 'services/*.js' > API_REFERENCE.md
+          npx jsdoc2md --files 'controllers/*.js' 'services/*.js' > docs/API_REFERENCE.md
 
       - name: ⬆️ Commit and Push Documentation Update
         uses: stefanzweifel/git-auto-commit-action@v5

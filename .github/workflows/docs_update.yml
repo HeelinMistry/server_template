@@ -29,13 +29,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20' # Use a modern, stable Node version
-          
-      - name: Route to root folder
-        run: |
-          cd server_template
 
       - name: 📦 Install Project Dependencies
-        run: npm ci # Use 'ci' for faster, cleaner dependency install in CI environments
+        run: npm ci
+        working-directory: server_template
 
       - name: 📝 Install JSDoc-to-Markdown Tool
         # Install the generator tool needed to create the Markdown file

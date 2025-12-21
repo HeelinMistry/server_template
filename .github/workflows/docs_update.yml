@@ -31,8 +31,7 @@ jobs:
           node-version: '20' # Use a modern, stable Node version
 
       - name: 📦 Install Project Dependencies
-        cd server_template
-        run: npm ci
+        run: npm ci # Use 'ci' for faster, cleaner dependency install in CI environments
 
       - name: 📝 Install JSDoc-to-Markdown Tool
         # Install the generator tool needed to create the Markdown file
@@ -40,6 +39,7 @@ jobs:
 
       - name: 📜 Generate API Documentation (Markdown)
         run: |
+          cd server_template
           npx jsdoc2md --files 'controllers/*.js' 'services/*.js' > API_REFERENCE.md
 
       - name: ⬆️ Commit and Push Documentation Update

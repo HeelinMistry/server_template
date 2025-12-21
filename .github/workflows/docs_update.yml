@@ -39,7 +39,7 @@ jobs:
 
       - name: 📜 Generate API Documentation (Markdown)
         run: |
-          # The exact command that uses jsdoc-to-markdown
+          cd server_template
           npx jsdoc2md --files 'controllers/*.js' 'services/*.js' > API_REFERENCE.md
 
       - name: ⬆️ Commit and Push Documentation Update

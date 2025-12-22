@@ -1,0 +1,196 @@
+{
+  "accounts": [
+    {
+      "id": 1766397289155,
+      "ownerId": "1766393556334",
+      "name": "Satrix 40 ETF",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-08",
+          "openingBalance": 293189.47,
+          "contribution": 1990.16,
+          "closingBalance": 306976.11
+        },
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 306976.11,
+          "contribution": 1990.16,
+          "closingBalance": 332170.29
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 322170.29,
+          "contribution": 1990.16,
+          "closingBalance": 338334.28
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 338334.28,
+          "contribution": 1990.16,
+          "closingBalance": 345241.83
+        }
+      ]
+    },
+    {
+      "id": 1766403972672,
+      "ownerId": "1766393556334",
+      "name": "Satrix Capped INDI ETF",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-08",
+          "openingBalance": 275860.45,
+          "contribution": 1990.16,
+          "closingBalance": 280369.6
+        },
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 280369.6,
+          "contribution": 1990.16,
+          "closingBalance": 282981.12
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 282981.12,
+          "contribution": 1990.16,
+          "closingBalance": 291879.73
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 291879.73,
+          "contribution": 1990.16,
+          "closingBalance": 282398.81
+        }
+      ]
+    },
+    {
+      "id": 1766403985715,
+      "ownerId": "1766393556334",
+      "name": "Satrix Global Infrastructure ETF",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-08",
+          "openingBalance": 14189.25,
+          "contribution": 1990.16,
+          "closingBalance": 15880.72
+        },
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 15880.72,
+          "contribution": 1990.16,
+          "closingBalance": 17868.69
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 17868.69,
+          "contribution": 1990.16,
+          "closingBalance": 19924.51
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 19924.51,
+          "contribution": 1990.16,
+          "closingBalance": 22084.12
+        }
+      ]
+    },
+    {
+      "id": 1766404001428,
+      "ownerId": "1766393556334",
+      "name": "Satrix MSCI India ETF",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-08",
+          "openingBalance": 74101.65,
+          "contribution": 1990.16,
+          "closingBalance": 73384.43
+        },
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 73384.43,
+          "contribution": 1990.16,
+          "closingBalance": 73494.86
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 73494.86,
+          "contribution": 1990.16,
+          "closingBalance": 79353.95
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 79353.95,
+          "contribution": 1990.16,
+          "closingBalance": 80933.04
+        }
+      ]
+    },
+    {
+      "id": 1766404017316,
+      "ownerId": "1766393556334",
+      "name": "Satrix MSCI World ETF",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-08",
+          "openingBalance": 296259.81,
+          "contribution": 1990.16,
+          "closingBalance": 295629.42
+        },
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 295629.42,
+          "contribution": 1990.16,
+          "closingBalance": 298257.57
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 298257.57,
+          "contribution": 1990.16,
+          "closingBalance": 310541.81
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 310541.81,
+          "contribution": 1990.16,
+          "closingBalance": 306631.42
+        }
+      ]
+    },
+    {
+      "id": 1766404031530,
+      "ownerId": "1766393556334",
+      "name": "Satrix MSCI World Islamic ETF",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-08",
+          "openingBalance": 19003.04,
+          "contribution": 1990.16,
+          "closingBalance": 20587.61
+        },
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 20587.61,
+          "contribution": 1990.16,
+          "closingBalance": 22969.04
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 22969.04,
+          "contribution": 1990.16,
+          "closingBalance": 25956.01
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 25956.01,
+          "contribution": 1990.16,
+          "closingBalance": 27248.68
+        }
+      ]
+    }
+  ]
+}

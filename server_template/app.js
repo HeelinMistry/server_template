@@ -6,6 +6,7 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import accountsRouter from './routes/accounts.js';
 import dbViewerRouter from './routes/dbViewer.js';
 import { generalErrorHandler } from './middlewares/errorHandler.js';
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 // Routes
 app.use('/api', indexRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/accounts', accountsRouter);
 
 app.use('/api/db', dbViewerRouter);
 app.get('/', (req, res) => {

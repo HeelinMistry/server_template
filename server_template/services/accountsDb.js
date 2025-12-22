@@ -6,7 +6,7 @@ import {fileURLToPath} from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const file = path.join(__dirname, 'usersDb.json');
+const file = path.join(__dirname, 'accountsDb.json');
 const adapter = new JSONFile(file);
 const db = new Low(adapter, {});
 
@@ -18,7 +18,7 @@ export async function init() {
     await db.read();
 
     if (!db.data) db.data = {};
-    if (!Array.isArray(db.data.users)) db.data.users = [];
+    if (!Array.isArray(db.data.accounts)) db.data.accounts = [];
 
     await db.write();
     initialized = true;

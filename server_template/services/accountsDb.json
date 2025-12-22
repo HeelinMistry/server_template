@@ -191,6 +191,194 @@
           "closingBalance": 27248.68
         }
       ]
+    },
+    {
+      "id": 1766409806039,
+      "ownerId": "1766393556334",
+      "name": "Satrix MSCI World ETF (TFSA)",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-08",
+          "openingBalance": 41991.44,
+          "contribution": 0,
+          "closingBalance": 41620.34
+        },
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 41620.34,
+          "contribution": 0,
+          "closingBalance": 41709.25
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 41709.25,
+          "contribution": 0,
+          "closingBalance": 43139.5
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 43139.5,
+          "contribution": 0,
+          "closingBalance": 42323.87
+        }
+      ]
+    },
+    {
+      "id": 1766409852891,
+      "ownerId": "1766393556334",
+      "name": "Satrix S&P 500 ETF (TFSA)",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-08",
+          "openingBalance": 40916.62,
+          "contribution": 0,
+          "closingBalance": 40202.57
+        },
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 40202.57,
+          "contribution": 0,
+          "closingBalance": 40561.25
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 40561.25,
+          "contribution": 0,
+          "closingBalance": 42102.27
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 42102.27,
+          "contribution": 0,
+          "closingBalance": 41185.63
+        }
+      ]
+    },
+    {
+      "id": 1766410959704,
+      "ownerId": "1766393556334",
+      "name": "MoneyFund Tracker",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 160659.44,
+          "contribution": 0,
+          "closingBalance": 161539.15
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 161539.15,
+          "contribution": 0,
+          "closingBalance": 162442.84
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 162442.84,
+          "contribution": 0,
+          "closingBalance": 163314.25
+        }
+      ]
+    },
+    {
+      "id": 1766411902080,
+      "ownerId": "1766393556334",
+      "name": "Galileo Next World Portfolio",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 170159.87,
+          "contribution": 0,
+          "closingBalance": 179762.57
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 179762.57,
+          "contribution": 0,
+          "closingBalance": 185373.89
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 185373.89,
+          "contribution": 0,
+          "closingBalance": 192321.23
+        }
+      ]
+    },
+    {
+      "id": 1766412170536,
+      "ownerId": "1766393556334",
+      "name": "Vanguard Information Technology ETF",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 51909.7,
+          "contribution": 0,
+          "closingBalance": 51971.82
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 51971.82,
+          "contribution": 11690.25,
+          "closingBalance": 63737.05
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 63737.05,
+          "contribution": 5010.11,
+          "closingBalance": 68778.72
+        }
+      ]
+    },
+    {
+      "id": 1766412183821,
+      "ownerId": "1766393556334",
+      "name": "Vanguard S&P 500 ETF",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 0,
+          "contribution": 6680.14,
+          "closingBalance": 6713.54
+        }
+      ]
+    },
+    {
+      "id": 1766433070620,
+      "ownerId": "1766393556334",
+      "name": "Kikuyu",
+      "type": "LOAN",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-09",
+          "openingBalance": 326286.69,
+          "contribution": 9872.79,
+          "interestRate": 9.9,
+          "termsLeft": 174,
+          "closingBalance": 318988.5
+        },
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 318988.5,
+          "contribution": 9872.79,
+          "interestRate": 9.9,
+          "termsLeft": 173,
+          "closingBalance": 311714.75
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 311714.75,
+          "contribution": 9872.79,
+          "interestRate": 9.65,
+          "termsLeft": 172,
+          "closingBalance": 293226.8
+        }
+      ]
     }
   ]
 }

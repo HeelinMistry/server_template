@@ -66,6 +66,7 @@ export async function createAccount(ownerId, accountName, accountType) {
 
 /**
  * Updates an existing monthly history record or creates a new one for an account.
+ * Dynamically selects SAVING or LOAN account to update
  * This function calculates the closing balance based on the other fields.
  *
  * @async
@@ -73,10 +74,12 @@ export async function createAccount(ownerId, accountName, accountType) {
  * @param {string} monthKey - The month identifier (YYYY-MM).
  * @param {number} openingBalance - The total contribution for the month.
  * @param {number} contribution - The total contribution for the month.
+ * @param {number} interestRate - The interestRate for the month.
+ * @param {number} termsLeft - The termsLeft in months.
  * @param {number} closingBalance - The total contribution for the month.
  * @returns {Promise<object>} An object indicating success and the updated monthly record.
  */
-export async function updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, closingBalance) {
+export async function updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance) {
     await init();
     await db.read();
     const account = db.data.accounts.find(a => a.id === accountId);
@@ -84,30 +87,63 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
         return { success: false, message: `Account with ID ${accountId} not found.` };
     }
 
-    const monthIndex = account.monthlyHistory.findIndex(m => m.monthKey === monthKey);
-    if (monthIndex !== -1) {
-        // --- UPDATE Existing Record (Scenario 1) ---
-        const record = account.monthlyHistory[monthIndex];
-        record.openingBalance = openingBalance;
-        record.contribution = contribution;
-        record.closingBalance = closingBalance;
-        var updatedRecord = record;
-    } else {
-        // --- CREATE New Record (Scenario 2) ---
-        const newRecord = {
-            monthKey,
-            openingBalance,
-            contribution,
-            closingBalance,
-        };
-        account.monthlyHistory.push(newRecord);
-        var updatedRecord = newRecord;
+    if (account.type === 'SAVING') {
+        const monthIndex = account.monthlyHistory.findIndex(m => m.monthKey === monthKey);
+        if (monthIndex !== -1) {
+            // --- UPDATE Existing Record (Scenario 1) ---
+            const record = account.monthlyHistory[monthIndex];
+            record.openingBalance = openingBalance;
+            record.contribution = contribution;
+            record.closingBalance = closingBalance;
+            var updatedRecord = record;
+        } else {
+            // --- CREATE New Record (Scenario 2) ---
+            const newRecord = {
+                monthKey,
+                openingBalance,
+                contribution,
+                closingBalance,
+            };
+            account.monthlyHistory.push(newRecord);
+            var updatedRecord = newRecord;
+        }
+        account.monthlyHistory.sort((a, b) => {
+                return a.monthKey.localeCompare(b.monthKey);
+            });
+
+        await db.write();
+        return { success: true, record: updatedRecord };
     }
-    account.monthlyHistory.sort((a, b) => {
-            return a.monthKey.localeCompare(b.monthKey);
-        });
-    await db.write();
-    return { success: true, record: updatedRecord };
+    if (account.type === 'LOAN') {
+        const monthIndex = account.monthlyHistory.findIndex(m => m.monthKey === monthKey);
+        if (monthIndex !== -1) {
+            // --- UPDATE Existing Record (Scenario 1) ---
+            const record = account.monthlyHistory[monthIndex];
+            record.openingBalance = openingBalance;
+            record.contribution = contribution;
+            record.interestRate = interestRate;
+            record.termsLeft = termsLeft;
+            record.closingBalance = closingBalance;
+            var updatedRecord = record;
+        } else {
+            // --- CREATE New Record (Scenario 2) ---
+            const newRecord = {
+                monthKey,
+                openingBalance,
+                contribution,
+                interestRate,
+                termsLeft,
+                closingBalance,
+            };
+            account.monthlyHistory.push(newRecord);
+            var updatedRecord = newRecord;
+        }
+        account.monthlyHistory.sort((a, b) => {
+                return a.monthKey.localeCompare(b.monthKey);
+            });
+        await db.write();
+        return { success: true, record: updatedRecord };
+    }
 }
 
 /**

@@ -79,7 +79,7 @@ export async function createAccount (req, res, next) {
  */
 export async function updateMonthlyHistory (req, res, next) {
     try {
-        const { accountId, monthKey, openingBalance, contribution, closingBalance } = req.body;
+        const { accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance } = req.body;
         if (!accountId) {
             return res.status(400).json({
                 success: false,
@@ -92,7 +92,7 @@ export async function updateMonthlyHistory (req, res, next) {
                 message: 'MonthKey is required',
             });
         }
-        const updatedAccount = await accountsService.updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, closingBalance);
+        const updatedAccount = await accountsService.updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance);
         if (updatedAccount.success) {
             res.status(201).json({
                         success: true,

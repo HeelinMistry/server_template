@@ -1,5 +1,5 @@
 // services/usersService.js
-import { db, init } from './db.js';
+import { db, init } from './usersDb.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';

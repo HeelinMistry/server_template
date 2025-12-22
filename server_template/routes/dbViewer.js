@@ -1,6 +1,6 @@
 // routes/dbViewer.js
 import express from 'express';
-import { db, init } from '../services/db.js';
+import { db, init } from '../services/usersDb.js';
 
 const router = express.Router();
 

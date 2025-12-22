@@ -60,7 +60,7 @@ export async function registerUser (req, res, next) {
 /**
  * Handles the POST /api/users/LoginUser request.
  * Validates the request body and calls the user service to create a new user.
- * @param {object} req - The Express request object, expecting 'name', 'username', and 'secret' in the body.
+ * @param {object} req - The Express request object, expecting 'name' in the body.
  * @param {object} res - The Express response object.
  * @param {function} next - The next middleware function.
  * @returns {Response} 201 Created on success, with a success, message and data.

@@ -74,7 +74,7 @@ Validates the request body and calls the user service to create a new user.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| req | <code>object</code> | The Express request object, expecting 'name', 'username', and 'secret' in the body. |
+| req | <code>object</code> | The Express request object, expecting 'name' in the body. |
 | res | <code>object</code> | The Express response object. |
 | next | <code>function</code> | The next middleware function. |
 

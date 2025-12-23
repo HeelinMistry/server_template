@@ -66,8 +66,7 @@ export async function createAccount(ownerId, accountName, accountType) {
 
 /**
  * Updates an existing monthly history record or creates a new one for an account.
- * Dynamically selects SAVING or LOAN account to update
- * This function calculates the closing balance based on the other fields.
+ * Dynamically selects SAVING or LOAN account to update.
  *
  * @async
  * @param {number} accountId - The unique ID of the account to modify.

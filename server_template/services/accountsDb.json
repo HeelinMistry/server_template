@@ -291,19 +291,19 @@
         {
           "monthKey": "2025-09",
           "openingBalance": 170159.87,
-          "contribution": 0,
+          "contribution": 5010.11,
           "closingBalance": 179762.57
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 179762.57,
-          "contribution": 0,
+          "contribution": 5010.11,
           "closingBalance": 185373.89
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 185373.89,
-          "contribution": 0,
+          "contribution": 5010.11,
           "closingBalance": 192321.23
         }
       ]

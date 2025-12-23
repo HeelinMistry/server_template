@@ -72,7 +72,7 @@ export async function createAccount (req, res, next) {
 /**
  * Handles the PUT /api/accounts/history request.
  * Validates the request body and calls the account service to create a new account.
- * @param {object} req - The Express request object, expecting 'accountId', 'monthKey', 'openingBalance', 'contribution' and 'closingBalance' in the body.
+ * @param {object} req - The Express request object, expecting 'accountId', 'monthKey', 'openingBalance', 'contribution', 'interestRate', 'termsLeft' and 'closingBalance' in the body.
  * @param {object} res - The Express response object.
  * @param {function} next - The next middleware function.
  * @returns {Response} 201 Created on success, with a success, message and data.

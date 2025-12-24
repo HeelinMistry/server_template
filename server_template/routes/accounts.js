@@ -34,6 +34,9 @@ const validateAccountHistory = [
 
 router.put('/history', validateAccountHistory, validationErrorHandler, accountsController.updateMonthlyHistory);
 
+// Delete Account
+router.delete('/:accountId', accountsController.deleteAccount)
+
 // List Accounts
 const validateListAccounts = [
 ];

@@ -20,6 +20,9 @@ const validateRegisterUser = [
 
 router.post('/register', validateRegisterUser, validationErrorHandler, usersController.registerUser);
 
+// Delete User
+router.delete('/:ownerId', usersController.deleteUser)
+
 // Login User
 const loginValidation = [
     body('name')

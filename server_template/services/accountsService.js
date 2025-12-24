@@ -150,6 +150,56 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
 }
 
 /**
+ * Deletes a specific account by ID, verifying ownership before removal.
+ *
+ * @async
+ * @param {number} accountId - The unique ID of the account to delete.
+ * @param {number} ownerId - The ID of the user who owns the account (security check).
+ * @returns {Promise<object>} An object indicating success or failure.
+ */
+export async function deleteAccount(accountId, ownerId) {
+    await init();
+    await db.read();
+    const initialLength = db.data.accounts.length;
+    const updatedAccounts = db.data.accounts.filter(account =>
+        !(account.id == accountId && account.ownerId == ownerId)
+    );
+    if (updatedAccounts.length === initialLength) {
+        const foundAccount = db.data.accounts.find(account => account.id == accountId);
+        if (foundAccount && foundAccount.ownerId != ownerId) {
+            return { success: false, message: "Authorization failed: Account found but does not belong to the user." };
+        } else {
+            return { success: false, message: `Account with ID ${accountId} not found.` };
+        }
+    }
+    db.data.accounts = updatedAccounts;
+    await db.write();
+    return { success: true, message: `Account ID ${accountId} successfully deleted.` };
+}
+
+/**
+ * Deletes ALL accounts belonging to a specific owner.
+ * This function is designed to be called during user deletion (cascading cleanup).
+ *
+ * @async
+ * @param {number} ownerId - The ID of the user whose accounts must be removed.
+ * @returns {Promise<object>} Status object detailing the cleanup.
+ */
+export async function deleteAllUserAccounts(ownerId) {
+    await init();
+    await db.read();
+    const initialCount = db.data.accounts.length;
+    db.data.accounts = db.data.accounts.filter(account => account.ownerId != ownerId);
+    const accountsDeletedCount = initialCount - db.data.accounts.length;
+    await db.write();
+    return {
+        success: true,
+        message: `${accountsDeletedCount} accounts removed for owner ID ${ownerId}.`,
+        deletedCount: accountsDeletedCount
+    };
+}
+
+/**
  * Retrieves all financial accounts associated with a given user ID.
  *
  * @async

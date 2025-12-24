@@ -1,4 +1,5 @@
 // services/usersService.js
+import { deleteAllUserAccounts } from './accountsService.js';
 import { db, init } from './usersDb.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -76,6 +77,35 @@ export async function createUser(name) {
         await db.write();
         return { success: true, user: { id: newUser.id } };
     }
+}
+
+/**
+ * Deletes a specific user by ID, verifying secret before removal.
+ *
+ * @async
+ * @param {number} ownerId - The unique ID of the account to delete.
+ * @param {string} name - The user's name (used as the primary identifier for login).
+ * @returns {Promise<object>} An object indicating success or failure.
+ */
+export async function deleteUser(ownerId, name) {
+    await init();
+    await db.read();
+    const user = findUserByName(name);
+    if (!user) {
+        return { success: false };
+    }
+    const isValid = await compareSecret(name, user.secret);
+    if (isValid) {
+        const updatedUsers = db.data.users.filter(user =>
+            !(user.id == ownerId)
+        );
+        db.data.users = updatedUsers;
+        const accountCleanupResult = await deleteAllUserAccounts(ownerId);
+    } else {
+        return { success: false, message: "Authorization failed" };
+    }
+    await db.write();
+    return { success: true, message: `${name} successfully deleted.` };
 }
 
 /**

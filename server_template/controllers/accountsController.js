@@ -72,14 +72,14 @@ export async function createAccount (req, res, next) {
 /**
  * Handles the PUT /api/accounts/history request.
  * Validates the request body and calls the account service to create a new account.
- * @param {object} req - The Express request object, expecting 'accountId', 'monthKey', 'openingBalance', 'contribution', 'interestRate', 'termsLeft' and 'closingBalance' in the body.
+ * @param {object} req - The Express request object, expecting 'accountId', 'monthKey', 'openingBalance', 'contribution', 'interestRate', 'termsLeft', 'closingBalance' and 'exchangeRate' in the body.
  * @param {object} res - The Express response object.
  * @param {function} next - The next middleware function.
  * @returns {Response} 201 Created on success, with a success, message and data.
  */
 export async function updateMonthlyHistory (req, res, next) {
     try {
-        const { accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance } = req.body;
+        const { accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate } = req.body;
         if (!accountId) {
             return res.status(400).json({
                 success: false,
@@ -92,7 +92,7 @@ export async function updateMonthlyHistory (req, res, next) {
                 message: 'MonthKey is required',
             });
         }
-        const updatedAccount = await accountsService.updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance);
+        const updatedAccount = await accountsService.updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate);
         if (updatedAccount.success) {
             res.status(201).json({
                         success: true,

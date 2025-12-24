@@ -76,9 +76,10 @@ export async function createAccount(ownerId, accountName, accountType) {
  * @param {number} interestRate - The interestRate for the month.
  * @param {number} termsLeft - The termsLeft in months.
  * @param {number} closingBalance - The total contribution for the month.
+ * @param {number} exchangeRate - The exchange rate to be applied (default = 1.0).
  * @returns {Promise<object>} An object indicating success and the updated monthly record.
  */
-export async function updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance) {
+export async function updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate = 1.0) {
     await init();
     await db.read();
     const account = db.data.accounts.find(a => a.id === accountId);
@@ -86,14 +87,15 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
         return { success: false, message: `Account with ID ${accountId} not found.` };
     }
 
+    const monthIndex = account.monthlyHistory.findIndex(m => m.monthKey === monthKey);
     if (account.type === 'SAVING') {
-        const monthIndex = account.monthlyHistory.findIndex(m => m.monthKey === monthKey);
         if (monthIndex !== -1) {
             // --- UPDATE Existing Record (Scenario 1) ---
             const record = account.monthlyHistory[monthIndex];
             record.openingBalance = openingBalance;
             record.contribution = contribution;
             record.closingBalance = closingBalance;
+            record.exchangeRate = exchangeRate;
             var updatedRecord = record;
         } else {
             // --- CREATE New Record (Scenario 2) ---
@@ -102,6 +104,7 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
                 openingBalance,
                 contribution,
                 closingBalance,
+                exchangeRate,
             };
             account.monthlyHistory.push(newRecord);
             var updatedRecord = newRecord;
@@ -114,7 +117,6 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
         return { success: true, record: updatedRecord };
     }
     if (account.type === 'LOAN') {
-        const monthIndex = account.monthlyHistory.findIndex(m => m.monthKey === monthKey);
         if (monthIndex !== -1) {
             // --- UPDATE Existing Record (Scenario 1) ---
             const record = account.monthlyHistory[monthIndex];
@@ -123,6 +125,7 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
             record.interestRate = interestRate;
             record.termsLeft = termsLeft;
             record.closingBalance = closingBalance;
+            record.exchangeRate = exchangeRate;
             var updatedRecord = record;
         } else {
             // --- CREATE New Record (Scenario 2) ---
@@ -133,6 +136,7 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
                 interestRate,
                 termsLeft,
                 closingBalance,
+                exchangeRate,
             };
             account.monthlyHistory.push(newRecord);
             var updatedRecord = newRecord;

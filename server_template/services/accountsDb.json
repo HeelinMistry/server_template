@@ -10,25 +10,29 @@
           "monthKey": "2025-08",
           "openingBalance": 293189.47,
           "contribution": 1990.16,
-          "closingBalance": 306976.11
+          "closingBalance": 306976.11,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-09",
           "openingBalance": 306976.11,
           "contribution": 1990.16,
-          "closingBalance": 332170.29
+          "closingBalance": 332170.29,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 322170.29,
           "contribution": 1990.16,
-          "closingBalance": 338334.28
+          "closingBalance": 338334.28,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 338334.28,
           "contribution": 1990.16,
-          "closingBalance": 345241.83
+          "closingBalance": 345241.83,
+          "exchangeRate": 1
         }
       ]
     },
@@ -42,25 +46,29 @@
           "monthKey": "2025-08",
           "openingBalance": 275860.45,
           "contribution": 1990.16,
-          "closingBalance": 280369.6
+          "closingBalance": 280369.6,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-09",
           "openingBalance": 280369.6,
           "contribution": 1990.16,
-          "closingBalance": 282981.12
+          "closingBalance": 282981.12,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 282981.12,
           "contribution": 1990.16,
-          "closingBalance": 291879.73
+          "closingBalance": 291879.73,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 291879.73,
           "contribution": 1990.16,
-          "closingBalance": 282398.81
+          "closingBalance": 282398.81,
+          "exchangeRate": 1
         }
       ]
     },
@@ -74,25 +82,29 @@
           "monthKey": "2025-08",
           "openingBalance": 14189.25,
           "contribution": 1990.16,
-          "closingBalance": 15880.72
+          "closingBalance": 15880.72,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-09",
           "openingBalance": 15880.72,
           "contribution": 1990.16,
-          "closingBalance": 17868.69
+          "closingBalance": 17868.69,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 17868.69,
           "contribution": 1990.16,
-          "closingBalance": 19924.51
+          "closingBalance": 19924.51,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 19924.51,
           "contribution": 1990.16,
-          "closingBalance": 22084.12
+          "closingBalance": 22084.12,
+          "exchangeRate": 1
         }
       ]
     },
@@ -106,25 +118,29 @@
           "monthKey": "2025-08",
           "openingBalance": 74101.65,
           "contribution": 1990.16,
-          "closingBalance": 73384.43
+          "closingBalance": 73384.43,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-09",
           "openingBalance": 73384.43,
           "contribution": 1990.16,
-          "closingBalance": 73494.86
+          "closingBalance": 73494.86,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 73494.86,
           "contribution": 1990.16,
-          "closingBalance": 79353.95
+          "closingBalance": 79353.95,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 79353.95,
           "contribution": 1990.16,
-          "closingBalance": 80933.04
+          "closingBalance": 80933.04,
+          "exchangeRate": 1
         }
       ]
     },
@@ -138,25 +154,29 @@
           "monthKey": "2025-08",
           "openingBalance": 296259.81,
           "contribution": 1990.16,
-          "closingBalance": 295629.42
+          "closingBalance": 295629.42,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-09",
           "openingBalance": 295629.42,
           "contribution": 1990.16,
-          "closingBalance": 298257.57
+          "closingBalance": 298257.57,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 298257.57,
           "contribution": 1990.16,
-          "closingBalance": 310541.81
+          "closingBalance": 310541.81,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 310541.81,
           "contribution": 1990.16,
-          "closingBalance": 306631.42
+          "closingBalance": 306631.42,
+          "exchangeRate": 1
         }
       ]
     },
@@ -170,25 +190,29 @@
           "monthKey": "2025-08",
           "openingBalance": 19003.04,
           "contribution": 1990.16,
-          "closingBalance": 20587.61
+          "closingBalance": 20587.61,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-09",
           "openingBalance": 20587.61,
           "contribution": 1990.16,
-          "closingBalance": 22969.04
+          "closingBalance": 22969.04,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 22969.04,
           "contribution": 1990.16,
-          "closingBalance": 25956.01
+          "closingBalance": 25956.01,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 25956.01,
           "contribution": 1990.16,
-          "closingBalance": 27248.68
+          "closingBalance": 27248.68,
+          "exchangeRate": 1
         }
       ]
     },
@@ -202,25 +226,29 @@
           "monthKey": "2025-08",
           "openingBalance": 41991.44,
           "contribution": 0,
-          "closingBalance": 41620.34
+          "closingBalance": 41620.34,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-09",
           "openingBalance": 41620.34,
           "contribution": 0,
-          "closingBalance": 41709.25
+          "closingBalance": 41709.25,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 41709.25,
           "contribution": 0,
-          "closingBalance": 43139.5
+          "closingBalance": 43139.5,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 43139.5,
           "contribution": 0,
-          "closingBalance": 42323.87
+          "closingBalance": 42323.87,
+          "exchangeRate": 1
         }
       ]
     },
@@ -234,25 +262,29 @@
           "monthKey": "2025-08",
           "openingBalance": 40916.62,
           "contribution": 0,
-          "closingBalance": 40202.57
+          "closingBalance": 40202.57,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-09",
           "openingBalance": 40202.57,
           "contribution": 0,
-          "closingBalance": 40561.25
+          "closingBalance": 40561.25,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 40561.25,
           "contribution": 0,
-          "closingBalance": 42102.27
+          "closingBalance": 42102.27,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 42102.27,
           "contribution": 0,
-          "closingBalance": 41185.63
+          "closingBalance": 41185.63,
+          "exchangeRate": 1
         }
       ]
     },
@@ -266,19 +298,22 @@
           "monthKey": "2025-09",
           "openingBalance": 160659.44,
           "contribution": 0,
-          "closingBalance": 161539.15
+          "closingBalance": 161539.15,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
           "openingBalance": 161539.15,
           "contribution": 0,
-          "closingBalance": 162442.84
+          "closingBalance": 162442.84,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
           "openingBalance": 162442.84,
           "contribution": 0,
-          "closingBalance": 163314.25
+          "closingBalance": 163314.25,
+          "exchangeRate": 1
         }
       ]
     },
@@ -290,21 +325,24 @@
       "monthlyHistory": [
         {
           "monthKey": "2025-09",
-          "openingBalance": 170159.87,
-          "contribution": 5010.11,
-          "closingBalance": 179762.57
+          "openingBalance": 9516.04,
+          "contribution": 272.73,
+          "closingBalance": 10061.1,
+          "exchangeRate": 17.62
         },
         {
           "monthKey": "2025-10",
-          "openingBalance": 179762.57,
-          "contribution": 5010.11,
-          "closingBalance": 185373.89
+          "openingBalance": 10061.1,
+          "contribution": 274.64,
+          "closingBalance": 10347.03,
+          "exchangeRate": 17.21
         },
         {
           "monthKey": "2025-11",
-          "openingBalance": 185373.89,
-          "contribution": 5010.11,
-          "closingBalance": 192321.23
+          "openingBalance": 10347.03,
+          "contribution": 274.3,
+          "closingBalance": 10736.1,
+          "exchangeRate": 17.29
         }
       ]
     },
@@ -316,21 +354,24 @@
       "monthlyHistory": [
         {
           "monthKey": "2025-09",
-          "openingBalance": 51909.7,
-          "contribution": 0,
-          "closingBalance": 51971.82
+          "openingBalance": 3582.61,
+          "contribution": 100.62,
+          "closingBalance": 3836.73,
+          "exchangeRate": 17.62
         },
         {
           "monthKey": "2025-10",
-          "openingBalance": 51971.82,
-          "contribution": 11690.25,
-          "closingBalance": 63737.05
+          "openingBalance": 3836.73,
+          "contribution": 704.48,
+          "closingBalance": 4809.39,
+          "exchangeRate": 17.21
         },
         {
           "monthKey": "2025-11",
-          "openingBalance": 63737.05,
-          "contribution": 5010.11,
-          "closingBalance": 68778.72
+          "openingBalance": 4809.39,
+          "contribution": 301.9,
+          "closingBalance": 4851.24,
+          "exchangeRate": 17.29
         }
       ]
     },
@@ -343,8 +384,9 @@
         {
           "monthKey": "2025-11",
           "openingBalance": 0,
-          "contribution": 6680.14,
-          "closingBalance": 6713.54
+          "contribution": 402.56,
+          "closingBalance": 403,
+          "exchangeRate": 17.29
         }
       ]
     },
@@ -360,7 +402,8 @@
           "contribution": 9872.79,
           "interestRate": 9.9,
           "termsLeft": 174,
-          "closingBalance": 318988.5
+          "closingBalance": 318988.5,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-10",
@@ -368,7 +411,8 @@
           "contribution": 9872.79,
           "interestRate": 9.9,
           "termsLeft": 173,
-          "closingBalance": 311714.75
+          "closingBalance": 311714.75,
+          "exchangeRate": 1
         },
         {
           "monthKey": "2025-11",
@@ -376,7 +420,8 @@
           "contribution": 9872.79,
           "interestRate": 9.65,
           "termsLeft": 172,
-          "closingBalance": 293226.8
+          "closingBalance": 293226.8,
+          "exchangeRate": 1
         }
       ]
     }

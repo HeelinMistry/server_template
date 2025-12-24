@@ -37,7 +37,7 @@ Validates the request body and calls the user service to create a new user.</p>
 <dt><a href="#createAccount">createAccount(name, type)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
 <dd><p>Create a new account, for an associated user.</p>
 </dd>
-<dt><a href="#updateMonthlyHistory">updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
+<dt><a href="#updateMonthlyHistory">updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
 <dd><p>Updates an existing monthly history record or creates a new one for an account.
 Dynamically selects SAVING or LOAN account to update.</p>
 </dd>
@@ -105,7 +105,7 @@ Validates the request body and calls the account service to create a new account
 
 | Param | Type | Description |
 | --- | --- | --- |
-| req | <code>object</code> | The Express request object, expecting 'accountId', 'monthKey', 'openingBalance', 'contribution', 'interestRate', 'termsLeft' and 'closingBalance' in the body. |
+| req | <code>object</code> | The Express request object, expecting 'accountId', 'monthKey', 'openingBalance', 'contribution', 'interestRate', 'termsLeft', 'closingBalance' and 'exchangeRate' in the body. |
 | res | <code>object</code> | The Express response object. |
 | next | <code>function</code> | The next middleware function. |
 
@@ -209,7 +209,7 @@ Create a new account, for an associated user.
 
 <a name="updateMonthlyHistory"></a>
 
-## updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance) ⇒ <code>Promise.&lt;object&gt;</code>
+## updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate) ⇒ <code>Promise.&lt;object&gt;</code>
 Updates an existing monthly history record or creates a new one for an account.
 Dynamically selects SAVING or LOAN account to update.
 
@@ -225,6 +225,7 @@ Dynamically selects SAVING or LOAN account to update.
 | interestRate | <code>number</code> | The interestRate for the month. |
 | termsLeft | <code>number</code> | The termsLeft in months. |
 | closingBalance | <code>number</code> | The total contribution for the month. |
+| exchangeRate | <code>number</code> | The exchange rate to be applied (default = 1.0). |
 
 <a name="getUserAccounts"></a>
 

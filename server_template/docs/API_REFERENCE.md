@@ -13,6 +13,9 @@ Validates the request body and calls the account service to create a new account
 <dd><p>Handles the PUT /api/accounts/history request.
 Validates the request body and calls the account service to create a new account.</p>
 </dd>
+<dt><a href="#deleteAccount">deleteAccount(req, res, next)</a></dt>
+<dd><p>Handles the DELETE request to delete an account for a specific user.</p>
+</dd>
 <dt><a href="#listUserAccounts">listUserAccounts(req, res, next)</a></dt>
 <dd><p>Handles the GET request to retrieve all accounts for a specific user.</p>
 </dd>
@@ -23,6 +26,9 @@ Returns a list of all the users in the database.</p>
 <dt><a href="#registerUser">registerUser(req, res, next)</a> ⇒ <code>Response</code></dt>
 <dd><p>Handles the POST /api/users/registerUser request.
 Validates the request body and calls the user service to create a new user.</p>
+</dd>
+<dt><a href="#deleteUser">deleteUser(req, res, next)</a> ⇒ <code>Response</code></dt>
+<dd><p>Handles the DELETE /api/users/:ownerId request.</p>
 </dd>
 <dt><a href="#loginUser">loginUser(req, res, next)</a> ⇒ <code>Response</code></dt>
 <dd><p>Handles the POST /api/users/LoginUser request.
@@ -41,6 +47,13 @@ Validates the request body and calls the user service to create a new user.</p>
 <dd><p>Updates an existing monthly history record or creates a new one for an account.
 Dynamically selects SAVING or LOAN account to update.</p>
 </dd>
+<dt><a href="#deleteAccount">deleteAccount(accountId, ownerId)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
+<dd><p>Deletes a specific account by ID, verifying ownership before removal.</p>
+</dd>
+<dt><a href="#deleteAllUserAccounts">deleteAllUserAccounts(ownerId)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
+<dd><p>Deletes ALL accounts belonging to a specific owner.
+This function is designed to be called during user deletion (cascading cleanup).</p>
+</dd>
 <dt><a href="#getUserAccounts">getUserAccounts(ownerId)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
 <dd><p>Retrieves all financial accounts associated with a given user ID.</p>
 </dd>
@@ -58,6 +71,9 @@ Dynamically selects SAVING or LOAN account to update.</p>
 </dd>
 <dt><a href="#createUser">createUser(name)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
 <dd><p>Create a new user, if there is no matching user.</p>
+</dd>
+<dt><a href="#deleteUser">deleteUser(ownerId, name)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
+<dd><p>Deletes a specific user by ID, verifying secret before removal.</p>
 </dd>
 <dt><a href="#loginUser">loginUser(name)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
 <dd><p>Finds a user by name, compares the secret, and generates a JWT upon successful authentication.</p>
@@ -109,6 +125,19 @@ Validates the request body and calls the account service to create a new account
 | res | <code>object</code> | The Express response object. |
 | next | <code>function</code> | The next middleware function. |
 
+<a name="deleteAccount"></a>
+
+## deleteAccount(req, res, next)
+Handles the DELETE request to delete an account for a specific user.
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| req | <code>object</code> | The Express request object. Expects accountId in req.params. Expects ownerId in req.body. |
+| res | <code>object</code> | The Express response object. |
+| next | <code>function</code> | The next middleware function. |
+
 <a name="listUserAccounts"></a>
 
 ## listUserAccounts(req, res, next)
@@ -149,6 +178,20 @@ Validates the request body and calls the user service to create a new user.
 | Param | Type | Description |
 | --- | --- | --- |
 | req | <code>object</code> | The Express request object, expecting 'name', 'username', and 'secret' in the body. |
+| res | <code>object</code> | The Express response object. |
+| next | <code>function</code> | The next middleware function. |
+
+<a name="deleteUser"></a>
+
+## deleteUser(req, res, next) ⇒ <code>Response</code>
+Handles the DELETE /api/users/:ownerId request.
+
+**Kind**: global function  
+**Returns**: <code>Response</code> - 201 Created on success, with a success, message and data.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| req | <code>object</code> | The Express request object, expecting 'name' in the body. |
 | res | <code>object</code> | The Express response object. |
 | next | <code>function</code> | The next middleware function. |
 
@@ -227,6 +270,32 @@ Dynamically selects SAVING or LOAN account to update.
 | closingBalance | <code>number</code> | The total contribution for the month. |
 | exchangeRate | <code>number</code> | The exchange rate to be applied (default = 1.0). |
 
+<a name="deleteAccount"></a>
+
+## deleteAccount(accountId, ownerId) ⇒ <code>Promise.&lt;object&gt;</code>
+Deletes a specific account by ID, verifying ownership before removal.
+
+**Kind**: global function  
+**Returns**: <code>Promise.&lt;object&gt;</code> - An object indicating success or failure.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| accountId | <code>number</code> | The unique ID of the account to delete. |
+| ownerId | <code>number</code> | The ID of the user who owns the account (security check). |
+
+<a name="deleteAllUserAccounts"></a>
+
+## deleteAllUserAccounts(ownerId) ⇒ <code>Promise.&lt;object&gt;</code>
+Deletes ALL accounts belonging to a specific owner.
+This function is designed to be called during user deletion (cascading cleanup).
+
+**Kind**: global function  
+**Returns**: <code>Promise.&lt;object&gt;</code> - Status object detailing the cleanup.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ownerId | <code>number</code> | The ID of the user whose accounts must be removed. |
+
 <a name="getUserAccounts"></a>
 
 ## getUserAccounts(ownerId) ⇒ <code>Promise.&lt;object&gt;</code>
@@ -303,6 +372,19 @@ Create a new user, if there is no matching user.
 
 | Param | Type | Description |
 | --- | --- | --- |
+| name | <code>string</code> | The user's name (used as the primary identifier for login). |
+
+<a name="deleteUser"></a>
+
+## deleteUser(ownerId, name) ⇒ <code>Promise.&lt;object&gt;</code>
+Deletes a specific user by ID, verifying secret before removal.
+
+**Kind**: global function  
+**Returns**: <code>Promise.&lt;object&gt;</code> - An object indicating success or failure.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ownerId | <code>number</code> | The unique ID of the account to delete. |
 | name | <code>string</code> | The user's name (used as the primary identifier for login). |
 
 <a name="loginUser"></a>

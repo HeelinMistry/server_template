@@ -118,7 +118,6 @@ export async function loginUser(req, res, next) {
                             success: true,
                             message: 'User logged in',
                             data: {
-                                user: result.user,
                                 token: result.token,
                             }
                         });

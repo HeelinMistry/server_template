@@ -1,26 +1,6 @@
 import * as accountsService from '../services/accountsService.js';
 
 /**
- * Handles the GET /api/accounts request.
- * Returns a list of all the accounts in the database.
- * @param {object} req - The Express request object.
- * @param {object} res - The Express response object.
- * @param {function} next - The next middleware function.
- * @returns {Response} 201 Created on success.
- */
-export async function getAccounts(req, res, next) {
-    try {
-        const accounts = await accountsService.getAllAccounts();
-        res.json({
-            success: true,
-            data: accounts,
-        });
-    } catch (error) {
-        next(error);
-    }
-}
-
-/**
  * Handles the POST /api/accounts/createAccount request.
  * Validates the request body and calls the account service to create a new account.
  * @param {object} req - The Express request object, expecting 'name', 'ownerId', and 'type' in the body.
@@ -156,8 +136,7 @@ export async function listUserAccounts(req, res, next) {
     try {
         // Retrieve ownerId from URL parameters
         // NOTE: If you are using JWTs, you would get this ID from req.user.id
-        const ownerId = req.params.ownerId;
-
+        const ownerId = req.user.id;
         if (!ownerId) {
             return res.status(400).json({ success: false, message: 'Owner ID is required.' });
         }

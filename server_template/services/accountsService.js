@@ -17,18 +17,6 @@ export function findAccountById(ownerId) {
 }
 
 /**
- * Get all accounts stored in the db.
- * @async
- * @returns {Promise<object>} An object containing success status and user data, or an error message.
- * @throws {Error} Throws if token signing or database connection fails.
- */
-export async function getAllAccounts() {
-    await init();
-    await db.read();
-    return db.data.accounts;
-}
-
-/**
  * Create a new account, for an associated user.
  * @async
  * @param {string} name - The user's name (used as the primary identifier for login).
@@ -114,7 +102,7 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
             });
 
         await db.write();
-        return { success: true, record: updatedRecord };
+        return { success: true, message: "Record Updated", record: updatedRecord };
     }
     if (account.type === 'LOAN') {
         if (monthIndex !== -1) {
@@ -145,7 +133,7 @@ export async function updateMonthlyHistory(accountId, monthKey, openingBalance, 
                 return a.monthKey.localeCompare(b.monthKey);
             });
         await db.write();
-        return { success: true, record: updatedRecord };
+        return { success: true, message: "Record updated", record: updatedRecord };
     }
 }
 
@@ -223,6 +211,7 @@ export async function getUserAccounts(ownerId) {
     }
     return {
         success: true,
+        message: `Accounts returned for owner ID ${ownerId}.`,
         accounts: userAccounts,
     };
 }

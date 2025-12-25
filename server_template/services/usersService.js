@@ -75,7 +75,7 @@ export async function createUser(name) {
         };
         db.data.users.push(newUser);
         await db.write();
-        return { success: true, user: { id: newUser.id } };
+        return { success: true, message: "User created", user: { id: newUser.id } };
     }
 }
 
@@ -92,7 +92,7 @@ export async function deleteUser(ownerId, name) {
     await db.read();
     const user = findUserByName(name);
     if (!user) {
-        return { success: false };
+        return { success: false, message: "User does not exist"};
     }
     const isValid = await compareSecret(name, user.secret);
     if (isValid) {
@@ -119,7 +119,7 @@ export async function loginUser(name) {
     await init();
     const user = findUserByName(name);
     if (!user) {
-        return { success: false };
+        return { success: false, message: "Login failed"};
     }
 
     const isValid = await compareSecret(name, user.secret);
@@ -131,9 +131,8 @@ export async function loginUser(name) {
             JWT_SECRET,
             { expiresIn: '1h' } // Token expires in 1 hour
         );
-        return { success: true, token, user: { id: user.id } };
+        return { success: true, message: "Login successful", token };
     } else {
-        // Secret does not match
-        return { success: false };
+        return { success: false, message: "Login failed"};
     }
 }

@@ -2,13 +2,10 @@ import express from 'express';
 import { body } from 'express-validator';
 
 import * as accountsController from '../controllers/accountsController.js';
-
+import { protect } from '../middlewares/authMiddleware.js';
 import { validationErrorHandler } from '../middlewares/errorHandler.js';
 
 const router = express.Router();
-
-// Get Accounts
-router.get('/', accountsController.getAccounts);
 
 // Create Account
 const validateCreateAccount = [
@@ -38,9 +35,8 @@ router.put('/history', validateAccountHistory, validationErrorHandler, accountsC
 router.delete('/:accountId', accountsController.deleteAccount)
 
 // List Accounts
-const validateListAccounts = [
-];
+const validateListAccounts = [];
 
-router.get('/:ownerId', validateListAccounts, validationErrorHandler, accountsController.listUserAccounts);
+router.get('/', protect, validateListAccounts, validationErrorHandler, accountsController.listUserAccounts);
 
 export default router;

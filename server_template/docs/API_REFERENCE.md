@@ -1,10 +1,6 @@
 ## Functions
 
 <dl>
-<dt><a href="#getAccounts">getAccounts(req, res, next)</a> ⇒ <code>Response</code></dt>
-<dd><p>Handles the GET /api/accounts request.
-Returns a list of all the accounts in the database.</p>
-</dd>
 <dt><a href="#createAccount">createAccount(req, res, next)</a> ⇒ <code>Response</code></dt>
 <dd><p>Handles the POST /api/accounts/createAccount request.
 Validates the request body and calls the account service to create a new account.</p>
@@ -36,9 +32,6 @@ Validates the request body and calls the user service to create a new user.</p>
 </dd>
 <dt><a href="#findAccountById">findAccountById(ownerId)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
 <dd><p>Compares accounts in the db with the ownerId and returns the matching account.</p>
-</dd>
-<dt><a href="#getAllAccounts">getAllAccounts()</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
-<dd><p>Get all accounts stored in the db.</p>
 </dd>
 <dt><a href="#createAccount">createAccount(name, type)</a> ⇒ <code>Promise.&lt;object&gt;</code></dt>
 <dd><p>Create a new account, for an associated user.</p>
@@ -79,21 +72,6 @@ This function is designed to be called during user deletion (cascading cleanup).
 <dd><p>Finds a user by name, compares the secret, and generates a JWT upon successful authentication.</p>
 </dd>
 </dl>
-
-<a name="getAccounts"></a>
-
-## getAccounts(req, res, next) ⇒ <code>Response</code>
-Handles the GET /api/accounts request.
-Returns a list of all the accounts in the database.
-
-**Kind**: global function  
-**Returns**: <code>Response</code> - 201 Created on success.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| req | <code>object</code> | The Express request object. |
-| res | <code>object</code> | The Express response object. |
-| next | <code>function</code> | The next middleware function. |
 
 <a name="createAccount"></a>
 
@@ -221,17 +199,6 @@ Compares accounts in the db with the ownerId and returns the matching account.
 | Param | Type | Description |
 | --- | --- | --- |
 | ownerId | <code>string</code> | The id of the user. |
-
-<a name="getAllAccounts"></a>
-
-## getAllAccounts() ⇒ <code>Promise.&lt;object&gt;</code>
-Get all accounts stored in the db.
-
-**Kind**: global function  
-**Returns**: <code>Promise.&lt;object&gt;</code> - An object containing success status and user data, or an error message.  
-**Throws**:
-
-- <code>Error</code> Throws if token signing or database connection fails.
 
 <a name="createAccount"></a>
 

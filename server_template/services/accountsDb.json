@@ -2,7 +2,7 @@
   "accounts": [
     {
       "id": 1766397289155,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Satrix 40 ETF",
       "type": "SAVING",
       "monthlyHistory": [
@@ -38,7 +38,7 @@
     },
     {
       "id": 1766403972672,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Satrix Capped INDI ETF",
       "type": "SAVING",
       "monthlyHistory": [
@@ -74,7 +74,7 @@
     },
     {
       "id": 1766403985715,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Satrix Global Infrastructure ETF",
       "type": "SAVING",
       "monthlyHistory": [
@@ -110,7 +110,7 @@
     },
     {
       "id": 1766404001428,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Satrix MSCI India ETF",
       "type": "SAVING",
       "monthlyHistory": [
@@ -146,7 +146,7 @@
     },
     {
       "id": 1766404017316,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Satrix MSCI World ETF",
       "type": "SAVING",
       "monthlyHistory": [
@@ -182,7 +182,7 @@
     },
     {
       "id": 1766404031530,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Satrix MSCI World Islamic ETF",
       "type": "SAVING",
       "monthlyHistory": [
@@ -218,7 +218,7 @@
     },
     {
       "id": 1766409806039,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Satrix MSCI World ETF (TFSA)",
       "type": "SAVING",
       "monthlyHistory": [
@@ -254,7 +254,7 @@
     },
     {
       "id": 1766409852891,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Satrix S&P 500 ETF (TFSA)",
       "type": "SAVING",
       "monthlyHistory": [
@@ -290,7 +290,7 @@
     },
     {
       "id": 1766410959704,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "MoneyFund Tracker",
       "type": "SAVING",
       "monthlyHistory": [
@@ -319,7 +319,7 @@
     },
     {
       "id": 1766411902080,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Galileo Next World Portfolio",
       "type": "SAVING",
       "monthlyHistory": [
@@ -348,7 +348,7 @@
     },
     {
       "id": 1766412170536,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Vanguard Information Technology ETF",
       "type": "SAVING",
       "monthlyHistory": [
@@ -377,7 +377,7 @@
     },
     {
       "id": 1766412183821,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Vanguard S&P 500 ETF",
       "type": "SAVING",
       "monthlyHistory": [
@@ -392,7 +392,7 @@
     },
     {
       "id": 1766433070620,
-      "ownerId": "1766393556334",
+      "ownerId": 1766393556334,
       "name": "Kikuyu",
       "type": "LOAN",
       "monthlyHistory": [
@@ -422,6 +422,43 @@
           "termsLeft": 172,
           "closingBalance": 293226.8,
           "exchangeRate": 1
+        }
+      ]
+    },
+    {
+      "id": 1766773136453,
+      "ownerId": 1766694473857,
+      "name": "Test",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 162442.84,
+          "contribution": 0,
+          "closingBalance": 163314.25,
+          "exchangeRate": 1
+        }
+      ]
+    },
+    {
+      "id": 1766856242314,
+      "ownerId": 1766694473857,
+      "name": "Update me",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2025-10",
+          "openingBalance": 100,
+          "contribution": 50,
+          "closingBalance": 3000,
+          "exchangeRate": 17.29
+        },
+        {
+          "monthKey": "2025-11",
+          "openingBalance": 3817.51,
+          "contribution": 301.9,
+          "closingBalance": 4780.5,
+          "exchangeRate": 17.29
         }
       ]
     }

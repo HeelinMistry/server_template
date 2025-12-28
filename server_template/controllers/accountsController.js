@@ -10,7 +10,11 @@ import * as accountsService from '../services/accountsService.js';
  */
 export async function createAccount (req, res, next) {
     try {
-        const { ownerId, name, type } = req.body;
+        const ownerId = req.user.id;
+        if (!ownerId) {
+            return res.status(400).json({ success: false, message: 'Owner ID is required.' });
+        }
+        const { name, type } = req.body;
         if (!name) {
             return res.status(400).json({
                 success: false,
@@ -26,7 +30,7 @@ export async function createAccount (req, res, next) {
         if (!type) {
             return res.status(400).json({
                 success: false,
-                message: 'ownerId is required',
+                message: 'type is required',
             });
         }
         const newAccount = await accountsService.createAccount(ownerId, name, type);
@@ -59,6 +63,7 @@ export async function createAccount (req, res, next) {
  */
 export async function updateMonthlyHistory (req, res, next) {
     try {
+        const ownerId = req.user.id;
         const { accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate } = req.body;
         if (!accountId) {
             return res.status(400).json({
@@ -72,7 +77,7 @@ export async function updateMonthlyHistory (req, res, next) {
                 message: 'MonthKey is required',
             });
         }
-        const updatedAccount = await accountsService.updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate);
+        const updatedAccount = await accountsService.updateMonthlyHistory(ownerId, accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate);
         if (updatedAccount.success) {
             res.status(201).json({
                         success: true,
@@ -82,7 +87,7 @@ export async function updateMonthlyHistory (req, res, next) {
         } else {
             res.status(201).json({
                         success: false,
-                        message: 'Account history not updated',
+                        message: updatedAccount.message,
                         data: null,
                     });
         }
@@ -101,7 +106,7 @@ export async function updateMonthlyHistory (req, res, next) {
 export async function deleteAccount(req, res, next) {
     try {
         const accountId = req.params.accountId;
-        const ownerId = req.body.ownerId; // Example: assuming ownerId is required in the body for verification
+        const ownerId = req.user.id;
         if (!accountId) {
             return res.status(400).json({ success: false, message: 'Account ID is required in the path.' });
         }
@@ -134,8 +139,6 @@ export async function deleteAccount(req, res, next) {
  */
 export async function listUserAccounts(req, res, next) {
     try {
-        // Retrieve ownerId from URL parameters
-        // NOTE: If you are using JWTs, you would get this ID from req.user.id
         const ownerId = req.user.id;
         if (!ownerId) {
             return res.status(400).json({ success: false, message: 'Owner ID is required.' });

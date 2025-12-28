@@ -9,30 +9,29 @@ const router = express.Router();
 
 // Create Account
 const validateCreateAccount = [
-    body('ownerId')
-        .trim()
-        .notEmpty().withMessage('OwnerId is required'),
     body('name')
         .trim()
-        .notEmpty().withMessage('Name is required')
-        .isLength({ min: 6 }).withMessage('Name must be at least 6 characters'),
+        .notEmpty().withMessage('Name is required'),
+    body('type')
+        .trim()
+        .notEmpty().withMessage('Type is required'),
 ];
 
-router.post('/create', validateCreateAccount, validationErrorHandler, accountsController.createAccount);
+router.post('/create', protect, validateCreateAccount, validationErrorHandler, accountsController.createAccount);
 
 // Update Account
 const validateAccountHistory = [
     body('accountId').notEmpty().withMessage('Account ID is required.'),
-        body('monthKey').notEmpty().withMessage('Month key (YYYY-MM) is required.'),
-        body('contribution').isNumeric().withMessage('Contribution must be a number.'),
-        body('openingBalance').isNumeric().withMessage('OpeningBalance must be a number.'),
-        body('closingBalance').isNumeric().withMessage('ClosingBalance must be a number.'),
+    body('monthKey').notEmpty().withMessage('Month key (YYYY-MM) is required.'),
+    body('contribution').isNumeric().withMessage('Contribution must be a number.'),
+    body('openingBalance').isNumeric().withMessage('OpeningBalance must be a number.'),
+    body('closingBalance').isNumeric().withMessage('ClosingBalance must be a number.'),
 ];
 
-router.put('/history', validateAccountHistory, validationErrorHandler, accountsController.updateMonthlyHistory);
+router.put('/history', protect, validateAccountHistory, validationErrorHandler, accountsController.updateMonthlyHistory);
 
 // Delete Account
-router.delete('/:accountId', accountsController.deleteAccount)
+router.delete('/:accountId', protect, accountsController.deleteAccount)
 
 // List Accounts
 const validateListAccounts = [];

@@ -67,12 +67,15 @@ export async function createAccount(ownerId, accountName, accountType) {
  * @param {number} exchangeRate - The exchange rate to be applied (default = 1.0).
  * @returns {Promise<object>} An object indicating success and the updated monthly record.
  */
-export async function updateMonthlyHistory(accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate = 1.0) {
+export async function updateMonthlyHistory(ownerId, accountId, monthKey, openingBalance, contribution, interestRate, termsLeft, closingBalance, exchangeRate = 1.0) {
     await init();
     await db.read();
-    const account = db.data.accounts.find(a => a.id === accountId);
+    const account = db.data.accounts.find(account =>
+        account.ownerId === ownerId && account.id === accountId
+    );
     if (!account) {
-        return { success: false, message: `Account with ID ${accountId} not found.` };
+        // Return a failure object if a duplicate is found
+        return { success: false, message: `Account not fount` };
     }
 
     const monthIndex = account.monthlyHistory.findIndex(m => m.monthKey === monthKey);
@@ -155,14 +158,14 @@ export async function deleteAccount(accountId, ownerId) {
     if (updatedAccounts.length === initialLength) {
         const foundAccount = db.data.accounts.find(account => account.id == accountId);
         if (foundAccount && foundAccount.ownerId != ownerId) {
-            return { success: false, message: "Authorization failed: Account found but does not belong to the user." };
+            return { success: false, message: "Authorization failed: Account found but does not belong to the user.", data: false };
         } else {
-            return { success: false, message: `Account with ID ${accountId} not found.` };
+            return { success: false, message: `Account with ID ${accountId} not found.`, data: false };
         }
     }
     db.data.accounts = updatedAccounts;
     await db.write();
-    return { success: true, message: `Account ID ${accountId} successfully deleted.` };
+    return { success: true, message: `Account ID ${accountId} successfully deleted.`, data: true };
 }
 
 /**

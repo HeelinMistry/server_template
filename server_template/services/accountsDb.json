@@ -54,6 +54,13 @@
           "contribution": 1990.16,
           "closingBalance": 407407.5,
           "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 407407.5,
+          "contribution": 1990.16,
+          "closingBalance": 365453.9,
+          "exchangeRate": 1
         }
       ]
     },
@@ -110,6 +117,13 @@
           "openingBalance": 283768.3,
           "contribution": 1990.16,
           "closingBalance": 287835.23,
+          "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 287835.23,
+          "contribution": 1990.16,
+          "closingBalance": 273847.1,
           "exchangeRate": 1
         }
       ]
@@ -168,6 +182,13 @@
           "contribution": 1990.16,
           "closingBalance": 29296.65,
           "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 29296.65,
+          "contribution": 1990.16,
+          "closingBalance": 32133.22,
+          "exchangeRate": 1
         }
       ]
     },
@@ -224,6 +245,13 @@
           "openingBalance": 75342.9,
           "contribution": 1990.16,
           "closingBalance": 77544.06,
+          "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 77544.06,
+          "contribution": 1990.16,
+          "closingBalance": 73433.49,
           "exchangeRate": 1
         }
       ]
@@ -282,6 +310,13 @@
           "contribution": 1990.16,
           "closingBalance": 303103.42,
           "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 303103.42,
+          "contribution": 1990.16,
+          "closingBalance": 302791.21,
+          "exchangeRate": 1
         }
       ]
     },
@@ -338,6 +373,13 @@
           "openingBalance": 31032.81,
           "contribution": 1990.16,
           "closingBalance": 33511.63,
+          "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 33511.63,
+          "contribution": 1990.16,
+          "closingBalance": 35586.33,
           "exchangeRate": 1
         }
       ]
@@ -396,6 +438,13 @@
           "contribution": 0,
           "closingBalance": 41025.05,
           "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 41025.05,
+          "contribution": 0,
+          "closingBalance": 40715.81,
+          "exchangeRate": 1
         }
       ]
     },
@@ -453,6 +502,28 @@
           "contribution": 0,
           "closingBalance": 38787.76,
           "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 38787.76,
+          "contribution": 0,
+          "closingBalance": 38854.18,
+          "exchangeRate": 1
+        }
+      ]
+    },
+    {
+      "id": 1775019376781,
+      "ownerId": 1766393556334,
+      "name": "Satrix RESI ETF (TFSA)",
+      "type": "SAVING",
+      "monthlyHistory": [
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 0,
+          "contribution": 22913.1,
+          "closingBalance": 21517.65,
+          "exchangeRate": 1
         }
       ]
     },
@@ -503,6 +574,13 @@
           "contribution": 0,
           "closingBalance": 165898.94,
           "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 165898.94,
+          "contribution": 0,
+          "closingBalance": 166782.34,
+          "exchangeRate": 1
         }
       ]
     },
@@ -518,6 +596,20 @@
           "contribution": 4000,
           "closingBalance": 4034.75,
           "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-02",
+          "openingBalance": 4034.75,
+          "contribution": 5000,
+          "closingBalance": 9124.54,
+          "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 9124.54,
+          "contribution": 2000,
+          "closingBalance": 10871.32,
+          "exchangeRate": 1
         }
       ]
     },
@@ -532,6 +624,20 @@
           "openingBalance": 0,
           "contribution": 2007.6,
           "closingBalance": 2032.75,
+          "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-02",
+          "openingBalance": 2032.75,
+          "contribution": 4998.9,
+          "closingBalance": 7352.96,
+          "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 7352.96,
+          "contribution": 2000.02,
+          "closingBalance": 8763.41,
           "exchangeRate": 1
         }
       ]
@@ -576,6 +682,20 @@
           "contribution": 269.33,
           "closingBalance": 11059.88,
           "exchangeRate": 16.72
+        },
+        {
+          "monthKey": "2026-02",
+          "openingBalance": 11059.88,
+          "contribution": 269.66,
+          "closingBalance": 11307.31,
+          "exchangeRate": 16.17
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 11307.31,
+          "contribution": 271.89,
+          "closingBalance": 10900.06,
+          "exchangeRate": 16.78
         }
       ]
     },
@@ -619,6 +739,20 @@
           "contribution": 301.6,
           "closingBalance": 5411.5,
           "exchangeRate": 16.72
+        },
+        {
+          "monthKey": "2026-02",
+          "openingBalance": 5411.5,
+          "contribution": 299.58,
+          "closingBalance": 5545.17,
+          "exchangeRate": 16.17
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 5545.17,
+          "contribution": 305.15,
+          "closingBalance": 5621.9,
+          "exchangeRate": 16.78
         }
       ]
     },
@@ -648,6 +782,20 @@
           "contribution": 402.59,
           "closingBalance": 1216.26,
           "exchangeRate": 16.72
+        },
+        {
+          "monthKey": "2026-02",
+          "openingBalance": 1216.26,
+          "contribution": 400.54,
+          "closingBalance": 1596.71,
+          "exchangeRate": 16.17
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 1596.71,
+          "contribution": 405.62,
+          "closingBalance": 1906.36,
+          "exchangeRate": 16.78
         }
       ]
     },
@@ -709,6 +857,15 @@
           "interestRate": 9.65,
           "termsLeft": 169,
           "closingBalance": 271178.84,
+          "exchangeRate": 1
+        },
+        {
+          "monthKey": "2026-03",
+          "openingBalance": 271178.84,
+          "contribution": 9545.52,
+          "interestRate": 9.65,
+          "termsLeft": 168,
+          "closingBalance": 263780.12,
           "exchangeRate": 1
         }
       ]
